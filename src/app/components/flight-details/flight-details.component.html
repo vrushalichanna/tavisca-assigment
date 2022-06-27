@@ -1,0 +1,32 @@
+<div>
+<div class="header">
+  <a routerLink="/"><i class="fa-solid fa-arrow-left"></i></a>
+  <div class="header-center">
+    <div class="location"><span>DEL<i class="fa-solid fa-arrow-right icon-mr"></i>CPT</span></div> 
+    <div><span>Jul 24 - Jul 30 | 1 Adult</span></div> 
+  </div>
+  <div class="header-right">
+    <a><i class="fa-solid fa-pen"></i></a>
+  </div>
+</div>
+
+<div class="card" *ngFor="let flight of flightsDetails">
+  <div class="container">
+    <h4><b>{{flight?.AirportName}}</b></h4>
+    <div class="details-section">
+        <div class="time-loc-start-section"><span>{{flight?.arrTime}}</span><span>{{flight?.from}}</span></div>
+        <div><input type="range" min="1" max="24" value="12" id="myRange" disabled="true" class="slider"><span>{{flight?.hours}}</span></div>
+        <div class="time-loc-end-section"><span>{{flight?.depTime}}</span><span>{{flight?.to}}</span></div>
+    </div>
+    <div>
+        <ng-container *ngFor="let class of flight.class">
+        <button class="button"><span>{{class?.value | currency}}</span>{{class?.key}}</button>
+    </ng-container>
+    </div>
+  </div>
+</div>
+    <div class="boxContainer">
+        <button class="btn" [routerLink]="'/flight-sort'">Sort By</button>
+        <button class="btn" [routerLink]="'/flight-search'">Filters</button>
+    </div>
+</div>

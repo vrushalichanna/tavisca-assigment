@@ -1,0 +1,19 @@
+<div class="container">
+  <button
+    class="tablink"
+    [routerLink]="'/'"
+    routerLinkActive="active"
+    [routerLinkActiveOptions]="{ exact: true }"
+  >
+    <i class="fa fa-plane" aria-hidden="true"></i>Flight
+  </button>
+  <button class="tablink" [routerLink]="'/car'" routerLinkActive="active">
+    <i class="fa-solid fa-car"></i>Car
+  </button>
+  <button class="tablink" [routerLink]="'/hotel'" routerLinkActive="active">
+    <i class="fa-solid fa-hotel"></i> Hotel
+  </button>
+  <button class="tablink" [routerLink]="'/activity'" routerLinkActive="active">
+    <i class="fa-regular fa-flag"></i>Activity
+  </button>
+</div>

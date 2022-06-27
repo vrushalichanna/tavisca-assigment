@@ -1,0 +1,68 @@
+<app-tab></app-tab>
+
+<div class="container">
+    <form name="flightForm" (ngSubmit)="flightForm.form.valid && onSubmit()" #flightForm="ngForm">
+        <div class="item-container">
+            <div class="input-textfield">
+                <input placeholder="Departure" class="form-control" #departureInput="ngModel" required
+                    [(ngModel)]="departure" [ngModelOptions]="{ standalone: true }" type="text" />
+                <label>Departure<span class="required-class">*</span></label>
+                <div *ngIf="departureInput.invalid && flightForm.submitted">
+                    <span class="required-class">Please Enter Departure.</span>
+                  </div>
+            </div>
+        </div>
+        <div class="item-container">
+            <div class="input-textfield">
+                <input placeholder="select Destination" required [(ngModel)]="destination" #destinationInput="ngModel"
+                    [ngModelOptions]="{ standalone: true }" type="text" />
+                <label>Destination</label>
+                <div *ngIf="departureInput.invalid && flightForm.submitted">
+                    <span class="required-class">Please Enter Departure.</span>
+                  </div>
+            </div>
+        </div>
+        <div class="item-container date-section">
+            <span class="input-textfield">
+                <input class="date-input" required [(ngModel)]="departureDate" #departureDateInput="ngModel"
+                    [ngModelOptions]="{ standalone: true }" placeholder="select Departure Date" type="date" />
+                <label>Departure Date</label>
+                <div *ngIf="departureDateInput.invalid && flightForm.submitted">
+                    <span class="required-class">Please Enter Departure Date.</span>
+                  </div>
+            </span>
+
+            <span class="input-textfield">
+                <input class="date-input mr-left" required [(ngModel)]="returnDate" #returnDateInput="ngModel"
+                    [ngModelOptions]="{ standalone: true }" placeholder="select Return Date" type="date" />
+                <label>Return Date</label>
+            </span>
+            <div *ngIf="returnDateInput.invalid && flightForm.submitted">
+                <span class="required-class">Please Enter Return Date.</span>
+              </div>
+        </div>
+        <div class="item-container date-section">
+            <span class="input-textfield">
+                <input class="date-input" required [(ngModel)]="travellers" #travellersInput="ngModel"
+                    [ngModelOptions]="{ standalone: true }" placeholder="Travellers" type="date" />
+                <label>Travellers</label>
+            </span>
+            <div *ngIf="travellersInput.invalid && flightForm.submitted">
+                <span class="required-class">Please Enter Travellers.</span>
+              </div>
+
+            <span class="input-textfield">
+                <select class="select-class mr-left" required [(ngModel)]="class"
+                    [ngModelOptions]="{ standalone: true }" name="class" id="class" #classInput="ngModel">
+                    <option value="economy">Business Class</option>
+                    <option value="basic">First Class</option>
+                    <option value="main">Economy Class</option>
+                </select>
+            </span>
+            <div *ngIf="classInput.invalid && flightForm.submitted">
+                <span class="required-class">Please select valid Class.</span>
+              </div>
+        </div>
+        <button type="submit" class="block">Search Flight</button>
+    </form>
+</div>
