@@ -13,7 +13,6 @@ import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { FlightDetailsComponent } from './components/flight-details/flight-details.component';
-import { SortByPipe } from './components/flight-details/sort-pipe';
 import { HeaderComponent } from './shared/header/header.component';
 import { SearchFlightComponent } from './search-flight/search-flight.component';
 import { SortByFlightComponent } from './sort-by-flight/sort-by-flight.component';
@@ -40,7 +39,7 @@ import { SortByFlightComponent } from './sort-by-flight/sort-by-flight.component
     HttpClientModule,
     RouterModule.forRoot([]),
   ],
-  providers: [SortByPipe],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
